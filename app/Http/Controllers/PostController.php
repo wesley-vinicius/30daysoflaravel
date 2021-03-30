@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Http\Requests\PostRequest;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -34,11 +35,11 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
-       $post = Post::create($request->all());
-
-       return redirect('posts/' . $post->id);
+        $post = Post::create($request->validated());
+        
+        return redirect('posts/' . $post->id);
         
     }
 
