@@ -11,7 +11,7 @@
         @endforeach
     </ul>
     <br>
-    <form action="/posts" method="post">
+    <form action="{{ route('posts.store') }}" method="post">
         @csrf
         <input type="text" name="title" placeholder="titulo">
         <br>

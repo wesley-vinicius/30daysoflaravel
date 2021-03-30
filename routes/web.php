@@ -21,3 +21,8 @@ Route::get('/', function () {
 Route::resource('posts', PostController::class)->only('index', 'create', 'store', 'show');
 
 Route::get('{post:title}', [PostController::class, 'showByTitle']);
+
+
+Route::prefix('admin')->as('admin.')->group(function (){
+    Route::get('test', fn() => 'ok')->name('teste');
+});

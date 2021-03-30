@@ -5,7 +5,7 @@
     
     <h1>Post</h1>
 
-    <a href="posts/create">Novo post</a>
+    <a href="{{ route('posts.create') }}">Novo post</a>
     <hr>
 
     <ul>

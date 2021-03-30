@@ -10,6 +10,6 @@
 
     <hr>
 
-    <a href="/posts">Voltar</a>
+    <a href="{{ route('posts.index') }}">Voltar</a>
   
 @endsection
