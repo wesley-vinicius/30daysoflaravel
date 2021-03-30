@@ -11,4 +11,19 @@ class Post extends Model
 
     protected $fillable = ['title', 'url', 'content'];
 
+    public function scopeHasUrl($query)
+    {
+        return $query->whereNotNull('url');
+    }
+
+    public function scopeWithoutUrl($query)
+    {
+        return $query->whereNull('url');
+    }
+
+    public function scopeTitleLike($query, $title)
+    {
+        return $query->where('title', 'LIKE', "%{$title}%");
+    }
+
 }
