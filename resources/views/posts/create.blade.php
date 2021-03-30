@@ -14,6 +14,9 @@
     <form action="/posts" method="post">
         @csrf
         <input type="text" name="title" placeholder="titulo">
+        <br>
+        <br>
+        <input type="text" name="url" placeholder="URL">
         <hr>
         <textarea name="content" id="content" cols="30" rows="10"></textarea>
         <hr>

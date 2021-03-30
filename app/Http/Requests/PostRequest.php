@@ -25,6 +25,7 @@ class PostRequest extends FormRequest
     {
         return [
             'title' => ['required', 'string'],
+            'url' => ['nullable', 'string'],
             'content' => ['required', 'string']
         ];
     }
@@ -34,6 +35,7 @@ class PostRequest extends FormRequest
         return [
             'title.required' => 'O campo título é obrigatorio',
             'title.string' => 'o título precisa ser uma string',
+            'title.string' => 'A URL precisa ser uma string',
             'content.required' => 'O campo conteudo é obrigatorio',
             'content.string' => 'o conteudo precisa ser uma string'
         ];
