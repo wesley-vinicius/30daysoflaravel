@@ -11,7 +11,7 @@
     <ul>
         @foreach ($posts as $item)
             <li> 
-                Vinculo por ID <a href="post/{{ $item->id }}"> {{$item->title}} </a> <br/> 
+                Vinculo por ID <a href="posts/{{ $item->id }}"> {{$item->title}} </a> <br/> 
                 Vinculo por Titulo: <a href="{{ $item->title }}"> {{$item->title}} </a>
             </li>
             <br>

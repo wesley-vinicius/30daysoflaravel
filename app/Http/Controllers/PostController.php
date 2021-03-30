@@ -38,7 +38,7 @@ class PostController extends Controller
     {
        $post = Post::create($request->all());
 
-       return redirect('post/' . $post->id);
+       return redirect('posts/' . $post->id);
         
     }
 
