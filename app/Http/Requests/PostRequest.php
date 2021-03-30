@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\HasHttps;
 use Illuminate\Foundation\Http\FormRequest;
 
 class PostRequest extends FormRequest
@@ -25,7 +26,7 @@ class PostRequest extends FormRequest
     {
         return [
             'title' => ['required', 'string'],
-            'url' => ['nullable', 'string'],
+            'url' => ['nullable', 'string', new HasHttps],
             'content' => ['required', 'string']
         ];
     }
