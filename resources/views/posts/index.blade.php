@@ -10,9 +10,12 @@
 
     <ul>
         @foreach ($posts as $item)
-            <li><a href="post/{{ $item->id }}"> {{$item->title}} </a></li>
+            <li> 
+                Vinculo por ID <a href="post/{{ $item->id }}"> {{$item->title}} </a> <br/> 
+                Vinculo por Titulo: <a href="{{ $item->title }}"> {{$item->title}} </a>
+            </li>
+            <br>
         @endforeach
     </ul>
   
-
 @endsection
