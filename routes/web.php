@@ -38,7 +38,7 @@ function teste($numberOfCalls)
     throw new \Exception;
 }
 
-Route::get('api/retry-test', function(){
+Route::get('helpers/retry-test', function(){
     $result = retry(3, function($tries){
         return teste($tries);
     }, 5);
