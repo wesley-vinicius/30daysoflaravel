@@ -37,6 +37,10 @@ class PostController extends Controller
      */
     public function store(PostRequest $request)
     {
+        if (now()->hour >= 19) {
+            return back()->withErrors(['time' => 'Já passou das 12 horas']);
+        }
+        
         $post = Post::create($request->validated());
         
         return redirect('posts/' . $post->id);
