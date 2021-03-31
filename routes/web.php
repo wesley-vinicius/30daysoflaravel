@@ -44,3 +44,14 @@ Route::get('helpers/retry-test', function(){
     }, 5);
     return $result;
 });
+
+//https://laravel.com/docs/8.x/helpers#method-rescue
+Route::get('helpers/rescue-test', function(){
+    $foundUser = rescue(function () {
+        throw new \Exception;
+    }, null);
+
+    dd($foundUser);
+});
+
+
