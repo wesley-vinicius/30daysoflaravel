@@ -18,6 +18,8 @@ class PostController extends Controller
     {
         $posts = Post::all();
 
+        $posts = $posts->withGoogleAsTitle();
+
         return PostResource::collection($posts);
 
         return view('posts.index', compact('posts'));
