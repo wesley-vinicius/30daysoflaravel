@@ -5,10 +5,18 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Http\Requests\PostRequest;
 use App\Http\Resources\PostResource;
+use App\Repositories\PostRepository;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+    protected $postRepository;
+
+    public function __construct(PostRepository $postRepository)
+    {
+        $this->postRepository = $postRepository;
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -16,9 +24,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        $posts = $this->postRepository->getAll();
 
-        $posts = $posts->withGoogleAsTitle();
+        // $posts = $posts->withGoogleAsTitle();
 
         return PostResource::collection($posts);
 
