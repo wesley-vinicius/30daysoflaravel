@@ -7,6 +7,10 @@
     <title> {{ env('APP_NAME') }} </title>
 </head>
 <body>
+    @if(auth()->check())
+        {{ auth()->user()->name }} Está logado
+    @endif
+    
     @yield('content')
 </body>
 </html>

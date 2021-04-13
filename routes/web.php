@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,9 @@ Route::get('/', function () {
 });
 
 Route::resource('posts', PostController::class)->only('index', 'create', 'store', 'show');
+
+Route::get('register', [RegisterController::class, 'index']);
+Route::post('register', [RegisterController::class, 'store'])->name('register');
 
 Route::get('{post:title}', [PostController::class, 'showByTitle']);
 
