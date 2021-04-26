@@ -4,6 +4,7 @@ use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
+use App\Http\Responsable\MyOwnClass;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,8 +29,9 @@ Route::post('register', [RegisterController::class, 'store'])->name('register');
 Route::get('login', [LoginController::class, 'index']);
 Route::post('login', [LoginController::class, 'store'])->name('login');
 
-Route::get('{post:title}', [PostController::class, 'showByTitle']);
+// Route::get('{post:title}', [PostController::class, 'showByTitle']);
 
+Route::get('responsable', fn() => new MyOwnClass);
 
 Route::prefix('admin')->as('admin.')->group(function (){
     Route::get('test', fn() => 'ok')->name('teste');
